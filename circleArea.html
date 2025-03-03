@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>modern javascript document object model</title>
+<style>
+  body{
+  background-color:#aa7af7;
+  }
+  h1{
+    text-align: center;
+    color:black;
+  }
+  input{
+    padding:10px;
+    border-radius: 5px;
+  }
+  button{
+    padding:10px;
+    border-radius: 5px;
+  }
+  div{
+    text-align: center;
+  }
+  p{
+    color:rgb(0, 255, 17);
+  }
+</style>
+</head>
+<body>
+  <div class="div">
+<h1>Circle Area Calculator</h1>
+<label for=""></label>
+  <input placeholder="Enter radius">
+  <button>find</button>
+<p id="result" ></p>
+</div>
+  <script>
+
+    const input = document.querySelector('input')
+    const button = document.querySelector('button')
+
+    button.addEventListener('click',()=>{
+  let radius = Number(input.value)
+  let area =Math.round(Math.PI * radius **2);
+let p = document.querySelector('#result')
+if(radius==0){
+p.textContent='please fill the input with number!!'
+}
+else{
+  p.textContent= `the area of circle is ${area} square meter.`
+}
+    })
+  
+  </script>
+</body>
+</html>
