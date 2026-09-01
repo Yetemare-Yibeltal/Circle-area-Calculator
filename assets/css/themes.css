@@ -1,0 +1,12 @@
+body.theme-light {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-sidebar: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: #e2e8f0;
+}
+
+body.theme-light .canvas-wrapper {
+  background-color: #ffffff;
+}
