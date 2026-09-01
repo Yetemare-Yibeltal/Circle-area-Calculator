@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circle Engine - Test Suite Harness</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --pass-color: #22c55e;
+            --fail-color: #ef4444;
+            --border: #334155;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 2rem;
+        }
+
+        .harness-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary-badge {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-family: monospace;
+        }
+
+        .suite-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .suite-title {
+            padding: 0.75rem 1rem;
+            background-color: #182234;
+            font-weight: 600;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .test-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        .test-item:last-child {
+            border-bottom: none;
+        }
+
+        .status-pill {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: monospace;
+        }
+
+        .status-PASSED {
+            background-color: rgba(34, 197, 94, 0.2);
+            color: var(--pass-color);
+        }
+
+        .status-FAILED {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: var(--fail-color);
+        }
+
+        .error-message {
+            color: var(--fail-color);
+            font-family: monospace;
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="harness-container">
+        <header class="header">
+            <h1>Unit Test Execution Suite</h1>
+            <div id="summaryBadge" class="summary-badge">Running suite...</div>
+        </header>
+
+        <main id="testResultsContainer"></main>
+    </div>
+
+    <script type="module">
+        import { executeAllSuites } from './testRunner.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const summary = executeAllSuites();
+            const summaryBadge = document.getElementById('summaryBadge');
+            const container = document.getElementById('testResultsContainer');
+
+            summaryBadge.innerHTML = `Tests: <strong>${summary.passed}/${summary.total} Passed</strong>`;
+            summaryBadge.style.borderColor = summary.failed > 0 ? 'var(--fail-color)' : 'var(--pass-color)';
+
+            container.innerHTML = summary.details.map(suite => `
+                <div class="suite-card">
+                    <div class="suite-title">${suite.suite}</div>
+                    <div>
+                        ${suite.tests.map(test => `
+                            <div class="test-item">
+                                <div>
+                                    <div>${test.name}</div>
+                                    ${test.error ? `<div class="error-message">${test.error}</div>` : ''}
+                                </div>
+                                <span class="status-pill status-${test.status}">${test.status}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        });
+    </script>
+</body>
+</html>
