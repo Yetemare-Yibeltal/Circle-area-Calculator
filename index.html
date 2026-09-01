@@ -22,7 +22,7 @@
                 <h1>Circle Engine Studio</h1>
                 <span id="fpsCounter" style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-secondary);">FPS: --</span>
             </div>
-            <div style="display: flex; gap: 0.5rem;">
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                 <button id="themeToggle" class="btn btn-secondary">Theme</button>
                 <button id="customThemeBtn" class="btn btn-secondary">Palette Editor</button>
                 <button id="historyBtn" class="btn btn-secondary">History</button>
@@ -59,7 +59,43 @@
         </main>
 
         <footer class="app-footer">
-            Circle Engine Studio &copy; Metages Yibeltal — Advanced Portfolio Engineering Suite
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Circle Engine Studio</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+                        High-precision geometric computing suite, elastic particle physics simulator, and vector export engine built with modern web technologies.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Core Modules</h4>
+                    <ul>
+                        <li><a href="#inputSection">Radius & Trigonometry Engine</a></li>
+                        <li><a href="#polygonDisplay">Regular Polygon Metrics</a></li>
+                        <li><a href="#geometry3dDisplay">3D Spatial Extrapolator</a></li>
+                        <li><a href="#physicsSection">Elastic Particle Simulator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Documentation & Testing</h4>
+                    <ul>
+                        <li><a href="README.md" target="_blank">Technical Architecture</a></li>
+                        <li><a href="tests/index.html" target="_blank">Visual Test Harness Suite</a></li>
+                        <li><a href="https://github.com/Yetemare-Yibeltal/Circle-Engine-Studio" target="_blank">GitHub Repository</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>System Telemetry</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">
+                        Status: <span style="color: var(--pass-color); font-weight: 600;">Operational</span><br>
+                        Engine Build: v2.4.0-ES6<br>
+                        License: MIT Open Source
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Metages Yibeltal. All rights reserved. Designed for Advanced Portfolio Engineering.</div>
+                <div>Powered by Vanilla ES6 Modules & HTML5 Canvas</div>
+            </div>
         </footer>
     </div>
 
