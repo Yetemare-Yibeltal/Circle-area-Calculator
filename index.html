@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Circle & Geometry Engine</title>
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/canvas.css">
+    <link rel="stylesheet" href="assets/css/controls.css">
+    <link rel="stylesheet" href="assets/css/charts.css">
+    <link rel="stylesheet" href="assets/css/modals.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <header class="app-header">
+            <div class="logo-container">
+                <span class="logo-icon">◯</span>
+                <h1>Circle Engine Studio</h1>
+            </div>
+            <div class="header-actions">
+                <button id="themeToggle" class="btn btn-secondary">Toggle Theme</button>
+                <button id="historyBtn" class="btn btn-secondary">History</button>
+                <button id="exportBtn" class="btn btn-primary">Export Data</button>
+            </div>
+        </header>
+
+        <main class="app-content">
+            <aside class="sidebar-panel">
+                <section id="inputSection" class="panel-card"></section>
+                <section id="presetSection" class="panel-card"></section>
+            </aside>
+
+            <section class="viewport-panel">
+                <div class="canvas-wrapper">
+                    <canvas id="geometryCanvas"></canvas>
+                    <div id="canvasOverlay" class="canvas-overlay"></div>
+                </div>
+                <div class="metrics-grid" id="metricsDisplay"></div>
+            </section>
+
+            <aside class="sidebar-panel">
+                <section id="chartSection" class="panel-card"></section>
+                <section id="formulaSection" class="panel-card"></section>
+            </aside>
+        </main>
+
+        <footer class="app-footer">
+            <p>Advanced Circle & Geometric Calculation Engine &copy; 2026</p>
+        </footer>
+    </div>
+
+    <!-- Application Engine Scripts -->
+    <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
